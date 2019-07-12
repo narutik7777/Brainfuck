@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class BrainFuck {
     private static Scanner ob = new Scanner(System.in);
-    private static int ptr;
+    private static int ptr; // Data pinter
 
 
     private static int length = 65535;
@@ -10,8 +10,8 @@ class BrainFuck {
 
     private static byte memory[] = new byte[length];
 
-    // ??????? ??????????????, ??????? ????????? ???
-    // ????????? ????????
+    // Interpreter function which accepts the code
+    // a string parameter
     private static void interpret(String s) {
         int c = 0;
 
@@ -19,7 +19,7 @@ class BrainFuck {
 
 
 
-        // ?????? ??????? ??????? ????
+        // Parsing through each character of the code
         for (int i = 0; i < s.length(); i++) {
 
 
@@ -44,7 +44,8 @@ class BrainFuck {
             else if (s.charAt(i) == '.')
                 System.out.print((char) (memory[ptr]));
 
-               // ?????? ?????? ? ????????? ?  ?????? ?? ?????????
+                // , inputs a character and store it in the
+                // cell at the pointer
             else if (s.charAt(i) == ',')
                 memory[ptr] = (byte) (ob.next().charAt(0));
 
@@ -82,4 +83,3 @@ class BrainFuck {
         System.out.println("Output:");
         interpret(code);
     }
-}
